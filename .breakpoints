@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.py": [
+      {
+        "id": "8ed5b7f6-eea0-4364-86cd-76584bef49dd",
+        "line": 2,
+        "version": 1698,
+        "index": 16
+      }
+    ],
+    "web_scraper.py": [
+      {
+        "id": "dbf4d986-0f49-4895-b5b5-c8cb0bda51b0",
+        "line": 27,
+        "version": 619,
+        "index": 538
+      }
+    ]
+  }
+}
