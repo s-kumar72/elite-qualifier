@@ -1,5 +1,6 @@
 # Title
-Simple (or clever and funny?) description
+C2C Elite Qualifier Project. 
+This code is written by *Sadhana Kumar*. 
 
 ## Table of Contents
 - [Background](#background)
@@ -7,13 +8,12 @@ Simple (or clever and funny?) description
 - [Usage](#usage)
 
 ## Background
-This is why this application exists.
+C2C Elite Qualifier project that scrapes posts from the subreddit r/space. 
 
 ## Install
-These are the steps to setup your local environment to run this
-application.
+Install [python](https://www.python.org/downloads/) on your computer. 
 
 ## Usage
-These are the steps to use the application or interact with it.
+Use to scrape posts from subreddits. 
 
 ### Any optional sections
