@@ -54,9 +54,12 @@ while counter <= 200:
 
 # IMPORT CSV FILE AS PANDAS DATAFRAME
 
-data = pd.read_csv("output_text.csv")
-data.columns = ['counter', 'title', 'author', 'likes', 'comments']
-print(data.head())
+def import_csv(csv_name):
+  data = pd.read_csv(csv_name)
+  data.columns = ['counter', 'title', 'author', 'likes', 'comments']
+  print(data.head())
+
+final_data = import_csv("output_text.csv")
 
 my_dict = {"Andromeda": 0,
         "Hubble": 0,
