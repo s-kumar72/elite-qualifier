@@ -65,6 +65,7 @@ def import_csv(csv_name):
   data = pd.read_csv(csv_name)
   data.columns = ['counter', 'title', 'author', 'likes', 'comments']
   print(data.head())
+  return data
 
 final_data = import_csv("output_text.csv")
 
