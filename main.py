@@ -4,7 +4,10 @@ import pandas as pd
 import numpy
 from bs4 import BeautifulSoup
 
-url = "https://old.reddit.com/r/space/"
+subreddit = input("Subreddit to search: ")
+keyword = input("Keyword to count occurrences: ")
+
+url = "https://old.reddit.com/r/" + subreddit + "/"
 
 headers = {'User-Agent': 'Mozilla/5.0'}
 
@@ -14,18 +17,22 @@ soup = BeautifulSoup(req.text, 'html.parser')
 
 domains = soup.find_all("span", class_="domain")
 
+domain_type = "(self." + subreddit + ")"
+
 for domain in domains:
-    if domain != "(self.space)":
+    if domain != domain_type:
         continue
 
     print(domain.text)
 
-attrs = {'class': 'thing', 'data-domain': 'self.space'}
+data_domain = 'self.' + subreddit
 
-# GET DATA FOR 200 POST FROM SUBREDDIT r/space
+attrs = {'class': 'thing', 'data-domain': data_domain}
+
+# GET DATA FOR 500 POSTS FROM SUBREDDIT
 
 counter = 1
-while counter <= 200:
+while counter <= 500:
   for post in soup.find_all('div', attrs=attrs):
       title = post.find('p', class_="title").text
       
@@ -61,32 +68,17 @@ def import_csv(csv_name):
 
 final_data = import_csv("output_text.csv")
 
-my_dict = {"Andromeda": 0,
-        "Hubble": 0,
-        "James Webb": 0,
-        "Cassiopeia": 0,
-        "Eclipse": 0,
-        "Apollo": 0,
-        "Sun": 0,
-        "Moon": 0,
-        "Mercury": 0,
-        "Venus": 0,
-        "Earth": 0,
-        "Mars": 0,
-        "Jupiter": 0,
-        "Saturn": 0,
-        "Uranus": 0,
-        "Neptune": 0,
-        "Pluto": 0}
+print(final_data['title'].head())
 
 titles = []
 
-for title in data['title']:
+occurrences = 0
+
+for title in final_data['title']:
   titles.append(title)
 
-for key in my_dict.keys():
-  for title in titles:
-    if key in title:
-      my_dict[key] += 1
+for title in titles:
+  if keyword in title:
+    occurrences += 1
 
-print(my_dict)
+print("The word " + keyword + " appears " + str(occurrences) + " time(s) in the subreddit")
